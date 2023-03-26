@@ -5,8 +5,12 @@ const ListsPanel = ({listCategories, addCategory, changeCategory, setChangeCateg
     const [textNewCategory, setTextNewCategory] = React.useState()
 
     const addNewCategory = (text) => {
-        addCategory(text)
-        setTextNewCategory('')
+        if (text !== '') {
+            addCategory(text)
+            setTextNewCategory('')
+        } else {
+            alert('Невозможно добавить пустую категорию')
+        }
     }
     console.log('changeCategory')
     console.log(changeCategory)

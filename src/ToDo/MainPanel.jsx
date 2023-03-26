@@ -4,6 +4,14 @@ import modules from './Styles/style.module.scss'
 const MainPanel = ({listTasks, changeCategory, addTask}) => {
     const [textTask, setTextTask] = React.useState()
 
+    const addNewTask = (text, id) => {
+        if (textTask !== '') {
+            setTextTask('')
+            addTask(text, id)
+        } else {
+            alert('Невозможно добавить пустую задачу')
+        }
+    }
     return (
         <div className={modules.mainPanel}>
             <h2>Список дел</h2>
@@ -18,7 +26,7 @@ const MainPanel = ({listTasks, changeCategory, addTask}) => {
             <input placeholder='Добавить задачу'
             onChange={(event)=>setTextTask(event.target.value)}
             value={textTask} />
-            <button onClick={()=>addTask(textTask, changeCategory)}>Добавить</button>
+            <button onClick={()=>addNewTask(textTask, changeCategory)}>Добавить</button>
         </div>
     )
 }
