@@ -1,20 +1,23 @@
 import React from 'react'
 import modules from './Styles/style.module.scss'
 
-const ListsPanel = ({listCategories, addCategory}) => {
+const ListsPanel = ({listCategories, addCategory, changeCategory, setChangeCategory}) => {
     const [textNewCategory, setTextNewCategory] = React.useState()
 
     const addNewCategory = (text) => {
         addCategory(text)
         setTextNewCategory('')
     }
-    console.log('categories')
-    console.log(listCategories)
+    console.log('changeCategory')
+    console.log(changeCategory)
     return (
         <div className={modules.ListsPanelRoot}>
             <h2>Категории</h2>
             {listCategories.map((category) => (
-                <div className={modules.category}>{category.value}</div>
+                <div className={`${modules.category}
+                ${changeCategory === category.id && 
+                    modules.changeCategory}`}
+                    onClick={()=>setChangeCategory(category.id)}>{category.value}</div>
             ))}
             <input placeholder='Добавить категорию'
             onChange={(event) => setTextNewCategory(event.target.value)} 

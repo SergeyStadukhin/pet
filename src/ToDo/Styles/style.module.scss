@@ -1,43 +1,65 @@
+$header: #dd5e5e;
+$border: #d93d3d;
+
 .Header {
     width: 100%;
     height: 50px;
-    background-color: firebrick;
+    background-color: $header;
 
     display: flex;
 
     .logo {
         width: 50px;
         height: 100%;
-        background-color: aqua;
+
+        border-right: 1px solid $border;
         }
         
     .settings {
-        background-color: blue;
         margin-left: auto;
+
+        border-left: 1px solid $border;
     }
         
     .profile {
-        background-color: blueviolet;
+        border-left: 1px solid $border;
     }
 }
 
 .Body {
     display: flex;
-
+    min-height: calc(100vh - 50px);
     width: 100%;
-    height: 100%;
-    background-color: bisque;
+    
 
     .ListsPanelRoot {
         width: 20%;
-        height: 100%;
 
         padding: 20px 10px 10px 10px;
-        background-color: aqua;
+        background-color: #d6d6d6;
     }
 
     .mainPanel {
+        width: 80%;
+
         padding: 20px 10px 10px 10px;
     }
 }
 
+.taskDone {
+    text-decoration: line-through;
+    color: darkblue;
+}
+
+.taskImportant {
+    color: red;
+}
+
+.category {
+    background-color: aliceblue;
+}
+
+.changeCategory {
+    font-weight: 900;
+    background-color: burlywood;
+}
